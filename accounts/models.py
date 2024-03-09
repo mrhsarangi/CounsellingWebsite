@@ -15,7 +15,7 @@ class User(AbstractUser):
     username = models.CharField( max_length = 35, unique = True )
     user_type = models.CharField( max_length = 9, choices = Role.choices, default = Role.STUDENT )
     email = models.EmailField( max_length = 50, unique = True )
-    slug = models.SlugField( unique = True, null = False )
+    slug = models.SlugField( unique = True, null = False, default='' )
 
     REQUIRED_FIELDS = ( 'user_type', 'email' )
 
