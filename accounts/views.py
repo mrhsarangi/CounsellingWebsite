@@ -20,14 +20,16 @@ class CreateAccount(CreateView):
         user_object.slug = user_object.username
         return super().form_valid(form)
     
-class AccountDetails(LoginRequiredMixin, DetailView):
+
+class UserDetails(LoginRequiredMixin, DetailView):
     
     model = User
     template_name = 'user_details.html'
 
+
 class UserLogin(LoginView):
 
-    
+
     template_name = 'login.html'
 
     def get_success_url(self) -> str:
