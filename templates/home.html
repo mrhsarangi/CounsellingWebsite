@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    {% if user.is_authenticated %} Welcome {{user.username}} {% endif %}
-  </body>
-</html>
+{% extends 'base.html' %} {% block content %} {% if user.is_authenticated %}
+Welcome {{user.username}} <br />
+<form action="{% url 'accounts:logout' %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Logout</button>
+</form>
+<a href="{% url 'accounts:details' user.slug %}">Details</a>
+<a href="{% url 'accounts:update' user.slug %}">Update</a>
+<!-- <a href="">Change Password</a> -->
+{% else %}
+<a href="{% url 'accounts:signup' %}">Create Account</a>
+<a href="{% url 'accounts:login' %}">Login</a>
+
+{% endif %} {% endblock %}

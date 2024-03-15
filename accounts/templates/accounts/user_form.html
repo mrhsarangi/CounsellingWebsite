@@ -10,7 +10,11 @@
       <table>
         {% csrf_token %} {{ form.as_table }}
       </table>
-      <input type="submit" value="submit" />
+      {% if user.id %}
+      <button type="submit">Update</button>
+      {% else %}
+      <button type="submit">SignUp</button>
+      {% endif %}
     </form>
   </body>
 </html>
