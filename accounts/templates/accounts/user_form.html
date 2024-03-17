@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="post">
+      <table>
+        {% csrf_token %} {{ form.as_table }}
+      </table>
+      {% if user.id %}
+      <button type="submit">Update</button>
+      {% else %}
+      <button type="submit">SignUp</button>
+      {% endif %}
+    </form>
+  </body>
+</html>

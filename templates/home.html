@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %} {% if user.id %} Welcome
+{{user.username}} <br />
+<form action="{% url 'accounts:logout' %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Logout</button>
+</form>
+<a href="{% url 'accounts:details' user.slug %}">Details</a>
+<a href="{% url 'accounts:update' user.slug %}">Update</a>
+<a href="{% url 'accounts:delete' user.slug %}">Delete</a>
+<!-- <a href="">Change Password</a> -->
+<a href="{% url 'posts:create' %}">Create Post</a>
+{% for post in posts %}
+<br />
+<h2>{{ post.title }}</h2>
+<a href="{% url 'posts:update' post.slug %}">Update Post</a>
+<a href="{% url 'posts:delete' post.slug %}">Delete Post</a>
+
+<br />
+{% endfor %}
+
+<!-- <a href="">Change Password</a> -->
+{% else %}
+<a href="{% url 'accounts:students-signup' %}">Students Sign-up</a>
+<a href="{% url 'accounts:counselor-signup' %}">Counselor Sign-up</a>
+<a href="{% url 'accounts:login' %}">Login</a>
+
+{% endif %} {% endblock %}

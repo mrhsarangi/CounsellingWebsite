@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %}
+<form action="" method="post">
+  <table>
+    {% csrf_token %} {{ form.as_table }}
+  </table>
+
+  {% if post.id %}
+  <button type="submit">Update</button>
+  {% else %}
+  <button type="submit">Post</button>
+  {% endif %}
+</form>
+{% endblock %}
