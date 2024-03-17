@@ -20,8 +20,8 @@ from .views import Home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('accounts.urls')),
-    path('', include('posts.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('posts/', include('posts.urls')),
     path("", Home.as_view(), name='homepage')
     # path('logout/', LogoutView.as_view(), name='logout'),
 

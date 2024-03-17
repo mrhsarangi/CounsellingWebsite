@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<form action="" method="post">
+  <table>
+    {% csrf_token %}
+    <h3>
+      Are you sure? Your post titled '{{ post.slug | title }}' will be deleted.
+    </h3>
+  </table>
+
+  <button type="submit">Delete</button>
+</form>
+{% endblock %}
