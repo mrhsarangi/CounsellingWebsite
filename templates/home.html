@@ -7,6 +7,7 @@
 <a href="{% url 'accounts:details' user.slug %}">Details</a>
 <a href="{% url 'accounts:update' user.slug %}">Update</a>
 <a href="{% url 'accounts:delete' user.slug %}">Delete</a>
+<a href="{% url 'accounts:password-change' user.slug %}">Change Password</a>
 
 <!-- <a href="">Change Password</a> -->
 {% else %}

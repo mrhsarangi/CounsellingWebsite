@@ -72,3 +72,10 @@ class UserDelete( LoginRequiredMixin, DeleteView):
     model = User
     template_name = 'accounts/user_delete_form.html'
     success_url = reverse_lazy('accounts:signup')
+
+
+# class ChangePassword(LoginRequiredMixin, PasswordChangeView):
+#     template_name = 'change_password.html'
+#     success_url = reverse_lazy( 'accounts:login' )
+#     def get_context_data(self, **kwargs: reverse_lazy) -> reverse_lazy:
+#         return super().get_context_data(**kwargs)
