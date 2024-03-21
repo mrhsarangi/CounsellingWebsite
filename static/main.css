@@ -1,0 +1,135 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #14171a;
+  color: #f8f8f8;
+}
+
+.sofia-sans semi condensed-font {
+  font-family: "Sofia Sans Semi Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.mbtn {
+  background-color: #14171a;
+  border: 1px solid #1da1f2;
+  color: #1da1f2;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.mbtn:hover {
+  text-align: center;
+  background-color: #1da1f2;
+  color: #f8f8f8;
+}
+
+.mbtn-l {
+  width: 305px;
+}
+
+.form-header {
+  text-align: center;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #f8f8f8;
+}
+
+.mform {
+  margin: auto;
+  width: 30.255vw;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 80px 80px;
+}
+
+.mform-lg {
+  width: 50vw;
+}
+.content-section {
+  height: 95vh;
+  width: 85vw;
+  margin: auto;
+  border: 25px soild white;
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.link-ani:after {
+  content: "";
+  position: absolute;
+  background-color: #1da1f2;
+  height: 2px;
+  width: 100%;
+  left: 0;
+  bottom: -10px;
+}
+
+.mposts {
+  margin: auto;
+  width: 85vw;
+  max-height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.mcard {
+  height: 48vh;
+  width: 30vw;
+  border: 1px solid #1da1f2;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.c-card-img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.c-card-body {
+  text-align: center;
+  width: 100%;
+  height: 50%;
+}
+
+/* Account:details page */
+.user-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  margin: auto;
+}
+
+.profile {
+  width: fit-content;
+}
+.stats {
+  width: 60%;
+  height: 30vh;
+}
+.mtable {
+  width: 80%;
+  height: 80%;
+  margin: auto 10%;
+  font-size: 24px;
+  padding: 5px auto;
+}
+
+@media (max-width: 991px) {
+  .msidebar {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+  }
+}

@@ -55,7 +55,7 @@ class UserLogin(LoginView):
 class UserUpdate(LoginRequiredMixin, UpdateView):
 
     model = User
-    fields = ('first_name', 'last_name', 'email')
+    fields = ( 'profile_img', 'first_name', 'last_name', 'email')
     template_name = "accounts/user_form.html" 
     success_url = reverse_lazy(viewname='homepage')
 
@@ -71,7 +71,7 @@ class UserDelete( LoginRequiredMixin, DeleteView):
 
     model = User
     template_name = 'accounts/user_delete_form.html'
-    success_url = reverse_lazy('accounts:signup')
+    success_url = reverse_lazy('accounts:login')
 
 
 # class ChangePassword(LoginRequiredMixin, PasswordChangeView):

@@ -1,20 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <form action="" method="post">
-      <table>
-        {% csrf_token %} {{ form.as_table }}
-      </table>
-      {% if user.id %}
-      <button type="submit">Update</button>
-      {% else %}
-      <button type="submit">SignUp</button>
-      {% endif %}
-    </form>
-  </body>
-</html>
+
+
+  
+</form>
+
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<form action="" method="post" class="mform " enctype="multipart/form-data">
+  {% if user.id %}
+  <p class="h3 form-header">User Update Form</p>
+  {% else %}
+  <p class="h3 form-header">User Creation Form</p>
+  {% endif %}
+
+  {% csrf_token %} {{ form | crispy }}
+
+  {% if user.id %}
+  <button  class="btn btn-outline-primary mbtn-l " type="submit">Update</button>
+  <a href="{% url 'accounts:details' user.slug %}" class="btn btn btn-outline-secondary mbtn-l my-3" type="submit">Cancel</a>
+
+  {% else %}
+  <button class="btn btn btn-outline-success mbtn-l" type="submit">SignUp</button>
+  <a href="{% url 'homepage'  %}" class="btn btn btn-outline-secondary mbtn-l my-3" type="submit">Cancel</a>
+
+  {% endif %}
+
+</form>
+
+{% endblock %}

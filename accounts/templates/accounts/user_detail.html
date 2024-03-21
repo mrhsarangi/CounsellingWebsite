@@ -1,34 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <table>
-      <tbody>
-        <tr>
-          <td>First Name</td>
-          <td>{{ object.first_name }}</td>
-        </tr>
-        <tr>
-          <td>Last Name</td>
-          <td>{{ object.last_name }}</td>
-        </tr>
-        <tr>
-          <td>Username</td>
-          <td>{{ object.username }}</td>
-        </tr>
-        <tr>
-          <td>Email</td>
-          <td>{{ object.email }}</td>
-        </tr>
-        <tr>
-          <td>Role</td>
-          <td>{{ object.user_type }}</td>
-        </tr>
-      </tbody>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section class="user-info mx-auto my-5">
+  <div class="profile">
+    <img
+      src="{{ object.profile_img.url }}"
+      alt=" profile-picture "
+      style="
+        object-fit: cover;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: auto;
+      "
+    />
+  </div>
+  <div class="stats">
+    <table class="mtable">
+      <tr>
+        <td>Username</td>
+        <td></td>
+        <td>{{ object.username }}</td>
+      </tr>
+      <tr>
+        <td>First Name</td>
+        <td></td>
+        <td>{{ object.first_name }}</td>
+      </tr>
+      <tr>
+        <td>Last Name</td>
+        <td></td>
+        <td>{{ object.last_name }}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td></td>
+        <td>{{ object.email }}</td>
+      </tr>
+      <tr>
+        <td>
+          <a
+            class="btn btn-primary"
+            href="{% url 'accounts:update' object.slug %}"
+            >Edit Profile</a
+          >
+        </td>
+        <td></td>
+        <td>
+          <a
+            class="btn btn-danger"
+            href="{% url 'accounts:delete' object.slug %}"
+            >Delete Account</a
+          >
+        </td>
+      </tr>
     </table>
-  </body>
-</html>
+  </div>
+</section>
+<p class="fs-5">User Posts</p>
+<hr />
+<section class="user-posts">
+  {% for post in object.posts.all %}
+  <div class="mpost text-center">
+    <p class="fs-4">{{ post.title}}</p>
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}

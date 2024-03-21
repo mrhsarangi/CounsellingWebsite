@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<form action="" method="post">
+<form action="" method="post" class="mform">
   {% csrf_token %}
 
   <h3>
@@ -7,7 +7,11 @@
     permanently deleted.
   </h3>
 
-  <button type="submit">Delete</button>
-  <a href="{% url 'homepage' %}">Cancel</a>
+  <button class="btn btn-outline-danger mbtn-l my-3" type="submit">
+    Delete
+  </button>
+  <a class="btn btn-outline-secondary mbtn-l my-3" href="{% url 'homepage' %}"
+    >Cancel</a
+  >
 </form>
 {% endblock %}
