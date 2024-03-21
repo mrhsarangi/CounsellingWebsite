@@ -10,7 +10,7 @@ class CreatePost(CreateView):
     model = Post
     template_name = 'posts/post_form.html'
     success_url = reverse_lazy('homepage')
-    fields = ( 'title', 'content' )
+    fields = ( 'cover_img', 'title', 'content', 'save_as_draft' )
 
     def form_valid(self, form):
         post = form.save(commit= False)
@@ -25,7 +25,7 @@ class UpdatePost(UpdateView):
     model = Post
     template_name = 'posts/post_form.html'
     success_url = reverse_lazy('homepage')
-    fields = ( 'title', 'content' )
+    fields = ( 'cover_img', 'title', 'content', 'save_as_draft' )
 
     def form_valid(self, form):
         post = form.save(commit= False)

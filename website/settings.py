@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'posts',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +125,9 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -132,3 +137,9 @@ AUTH_USER_MODEL = 'accounts.User'
 
 LOGIN_REDIRECT_URL = "homepage"
 LOGOUT_REDIRECT_URL = 'homepage'
+
+LOGIN_URL = 'accounts:login'
+LOGOUT_URL = 'accounts:logout'
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'

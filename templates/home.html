@@ -1,31 +1,28 @@
-{% extends 'base.html' %} {% block content %} {% if user.id %} Welcome
-{{user.username}} <br />
-<form action="{% url 'accounts:logout' %}" method="post">
-  {% csrf_token %}
-  <button type="submit">Logout</button>
-</form>
-<br />
-<a href="{% url 'accounts:details' user.slug %}">Details</a> <br />
-<a href="{% url 'accounts:update' user.slug %}">Update</a> <br />
-<a href="{% url 'accounts:delete' user.slug %}">Delete</a> <br />
-<!-- <a href="">Change Password</a> -->
-<a href="{% url 'posts:create' %}">Create Post</a> <br />
-{% for post in posts %}
-<br />
-<h2>{{ post.title }}</h2>
-<a href="{% url 'posts:details' post.slug %}">Read more</a>
+{% extends 'base.html' %} {% load static %} {% block content %}
+<section class="introduction">
+  <img
+    src="{% static 'assets/intro_img.jpg' %}"
+    alt=""
+    srcset=""
+    style="width: 75vw; height: 70vh; object-fit: cover"
+  />
+  <p class="h3">'Navigating Your Path to Success'</p>
+</section>
 <br />
 <br />
-<a href="{% url 'posts:update' post.slug %}">Update Post</a> <br />
-<a href="{% url 'posts:delete' post.slug %}">Delete Post</a>
+<p class="fs-4 text-start w-85">Latest Posts</p>
+<section class="mposts">
+  {% for post in posts %}
+  <div class="mcard mx-5" style="width: 18rem">
+    <img src="{{ post.cover_img.url }}" class="c-card-img" alt="" />
+    <div class="c-card-body">
+      <p class="fs-5">{{ post.title }}</p>
+      <a href="{% url 'posts:details' post.slug %}" class="mbtn mbtn-l"
+        >Read more</a
+      >
+    </div>
+  </div>
 
-<br />
-{% endfor %}
-
-<!-- <a href="">Change Password</a> -->
-{% else %}
-<a href="{% url 'accounts:students-signup' %}">Students Sign-up</a> <br />
-<a href="{% url 'accounts:counselor-signup' %}">Counselor Sign-up</a> <br />
-<a href="{% url 'accounts:login' %}">Login</a> <br />
-
-{% endif %} {% endblock %}
+  {% endfor %}
+</section>
+{% endblock %}
